@@ -664,11 +664,11 @@
         Ingen binding. Eg svarar innan 24 timar.
       </p>
 
-      <form class="contact-form fade-in" id="contactForm" novalidate>
+      <form class="contact-form fade-in" action="https://formspree.io/f/xdajpavb" method="POST">
 
         <div class="form-group">
           <label for="name" data-i18n="contact.form.name">Namn</label>
-          <input type="text"  id="name"     name="name"     required autocomplete="name"         placeholder=" " />
+          <input type="text"  id="name"     name="navn"     required autocomplete="name"         placeholder=" " />
         </div>
 
         <div class="form-group">
@@ -681,19 +681,17 @@
             <span data-i18n="contact.form.business">Verksemd</span>
             <span class="label-optional" data-i18n="contact.form.optional">(valfritt)</span>
           </label>
-          <input type="text"  id="business" name="business"          autocomplete="organization" placeholder=" " />
+          <input type="text"  id="business" name="verksemd"          autocomplete="organization" placeholder=" " />
         </div>
 
         <div class="form-group">
           <label for="message" data-i18n="contact.form.message">Melding</label>
-          <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+          <textarea id="message" name="melding" rows="5" required placeholder=" "></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary" id="formSubmit" data-i18n="contact.form.submit">
+        <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit">
           Send melding
         </button>
-
-        <div class="form-success" id="formSuccess" role="status" aria-live="polite"></div>
 
       </form>
 

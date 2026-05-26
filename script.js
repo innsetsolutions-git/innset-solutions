@@ -286,32 +286,6 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 
-/* ============================================================
-   CONTACT FORM
-   (replace the setTimeout with a real fetch() to your backend
-    or a service like Formspree when you go live)
-   ============================================================ */
-const contactForm = document.getElementById('contactForm');
-const formSubmit  = document.getElementById('formSubmit');
-const formSuccess = document.getElementById('formSuccess');
-
-contactForm.addEventListener('submit', e => {
-  e.preventDefault();
-  if (!contactForm.checkValidity()) { contactForm.reportValidity(); return; }
-
-  formSubmit.disabled = true;
-  formSubmit.textContent = '…';
-
-  setTimeout(() => {
-    contactForm.reset();
-    formSuccess.textContent = translations[currentLang]['contact.form.success'];
-    formSuccess.classList.add('show');
-    formSubmit.disabled = false;
-    formSubmit.textContent = translations[currentLang]['contact.form.submit'];
-    setTimeout(() => formSuccess.classList.remove('show'), 6000);
-  }, 900);
-});
-
 
 /* ============================================================
    SMOOTH SCROLL — JS fallback for older Safari
