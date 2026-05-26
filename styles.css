@@ -445,6 +445,16 @@ img { max-width: 100%; display: block; }
 }
 .service-desc  { color: var(--white-muted); font-size: 0.93rem; line-height: 1.75; }
 
+/* Secondary services grid — smaller cards below primary */
+.services-grid--secondary {
+  margin-top: 1.5rem;
+}
+.service-card--secondary {
+  padding: 1.8rem 1.8rem;
+}
+.service-card--secondary .service-icon { margin-bottom: 1.1rem; }
+.service-card--secondary .service-title { font-size: 1.1rem; }
+
 
 /* ============================================================
    DETAIL SECTIONS  (expanded views linked from service cards)
