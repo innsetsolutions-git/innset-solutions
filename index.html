@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Innset Solutions – profesjonelle digitale løysingar for norske campingplassar. Nettside, bookingsystem og digital pakke." />
+  <meta name="author" content="Vegard Innset" />
+  <title>Innset Solutions</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+
+</head>
+<body>
+
+  <!-- ================================
+       NAVBAR
+  ================================ -->
+  <nav class="navbar" id="navbar" role="navigation" aria-label="Hovudnavigasjon">
+    <div class="nav-container">
+
+      <!-- Two-line wordmark: INNSET (Playfair bold) / SOLUTIONS (Inter light) -->
+      <a href="#" class="nav-logo" aria-label="Innset Solutions – tilbake til toppen">
+        <span class="logo-innset">INNSET</span>
+        <span class="logo-solutions">SOLUTIONS</span>
+      </a>
+
+      <div class="nav-menu" id="navMenu">
+        <a href="#tjenester" class="nav-link" data-i18n="nav.services">Tenester</a>
+        <a href="#om-meg"    class="nav-link" data-i18n="nav.about">Om meg</a>
+        <a href="#kontakt"   class="nav-link" data-i18n="nav.contact">Kontakt</a>
+
+        <button class="lang-toggle" id="langToggle" aria-label="Bytt språk / Switch language">
+          <span class="lang-option active" id="langNo">NO</span>
+          <span class="lang-divider">/</span>
+          <span class="lang-option" id="langEn">EN</span>
+        </button>
+      </div>
+
+      <button class="hamburger" id="hamburger"
+              aria-label="Opne meny"
+              aria-expanded="false"
+              aria-controls="navMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </nav>
+
+
+  <!-- ================================
+       HERO  (two-column: text left, illustration right)
+  ================================ -->
+  <section class="hero" id="hero" aria-label="Hero">
+
+    <div class="hero-particles" aria-hidden="true">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <div class="hero-inner">
+
+      <!-- LEFT: text -->
+      <div class="hero-content">
+        <h1 class="hero-title" data-i18n="hero.title">
+          Digitale løysingar for di verksemd
+        </h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle">
+          Eg byggjer det digitale, du fokuserer på verksemda di.
+        </p>
+        <div class="hero-buttons">
+          <a href="#kontakt"   class="btn btn-primary"   data-i18n="hero.cta1">Ta kontakt</a>
+          <a href="#tjenester" class="btn btn-secondary" data-i18n="hero.cta2">Sjå tenester</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: SVG mockup (laptop + mobile with booking calendar) -->
+      <div class="hero-illustration" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 370" fill="none" role="img" aria-label="Mockup av nettside og bookingapp">
+          <defs>
+            <radialGradient id="ambientGlow" cx="45%" cy="50%" r="55%">
+              <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.12"/>
+              <stop offset="100%" stop-color="#c9a96e" stop-opacity="0"/>
+            </radialGradient>
+            <!-- Clip paths keep screen content within device frames -->
+            <clipPath id="laptopClip">
+              <rect x="16" y="28" width="310" height="199" rx="5"/>
+            </clipPath>
+            <clipPath id="phoneClip">
+              <rect x="332" y="71" width="134" height="260" rx="16"/>
+            </clipPath>
+          </defs>
+
+          <!-- Ambient glow behind devices -->
+          <ellipse cx="230" cy="195" rx="230" ry="170" fill="url(#ambientGlow)"/>
+
+          <!-- ─────────────────────────
+               LAPTOP
+          ───────────────────────── -->
+          <!-- Frame -->
+          <rect x="8"  y="20"  width="326" height="215" rx="10" fill="#0d1b35" stroke="#c9a96e" stroke-width="1.5" stroke-opacity="0.35"/>
+          <!-- Screen surface -->
+          <rect x="16" y="28"  width="310" height="199" rx="5"  fill="#070e1c"/>
+
+          <!-- All laptop screen content is clipped to the screen rect -->
+          <g clip-path="url(#laptopClip)">
+
+            <!-- NAV BAR -->
+            <rect x="16" y="28"  width="310" height="25" fill="#0b1729"/>
+            <!-- Logo mark -->
+            <rect x="26" y="36"  width="30"  height="8"  rx="2" fill="#c9a96e" opacity="0.72"/>
+            <!-- Nav items -->
+            <rect x="222" y="37" width="22"  height="5"  rx="2" fill="rgba(255,255,255,0.22)"/>
+            <rect x="249" y="37" width="20"  height="5"  rx="2" fill="rgba(255,255,255,0.22)"/>
+            <rect x="274" y="37" width="22"  height="5"  rx="2" fill="rgba(255,255,255,0.22)"/>
+            <!-- Navbar CTA pill -->
+            <rect x="302" y="33" width="18"  height="12" rx="5" fill="#c9a96e" opacity="0.45"/>
+
+            <!-- HERO SECTION -->
+            <rect x="16" y="53"  width="310" height="90" fill="#0a1628"/>
+            <!-- Dot-grid texture hint -->
+            <rect x="16" y="53"  width="310" height="90" fill="rgba(201,169,110,0.025)" style="background-image:radial-gradient(rgba(201,169,110,0.06) 1px,transparent 1px);background-size:12px 12px"/>
+            <!-- Headline lines -->
+            <rect x="36" y="68"  width="162" height="12" rx="3" fill="rgba(255,255,255,0.88)"/>
+            <rect x="36" y="86"  width="118" height="8"  rx="3" fill="rgba(255,255,255,0.42)"/>
+            <rect x="36" y="99"  width="140" height="7"  rx="3" fill="rgba(255,255,255,0.26)"/>
+            <!-- CTA buttons -->
+            <rect x="36" y="113" width="62"  height="19" rx="5" fill="#c9a96e"/>
+            <rect x="36" y="113" width="20"  height="7"  rx="2" x="44" y="118" fill="rgba(10,22,40,0.55)"/>
+            <rect x="103"y="113" width="60"  height="19" rx="5" fill="transparent" stroke="rgba(255,255,255,0.32)" stroke-width="1.5"/>
+
+            <!-- SERVICES SECTION -->
+            <rect x="16"  y="143" width="310" height="84" fill="#0c1830"/>
+            <!-- Section label -->
+            <rect x="36"  y="151" width="46"  height="5"  rx="2" fill="#c9a96e" opacity="0.68"/>
+
+            <!-- Card 1 -->
+            <rect x="31"  y="161" width="90"  height="55" rx="6" fill="#11213d" stroke="rgba(201,169,110,0.2)" stroke-width="1"/>
+            <circle cx="50" cy="178" r="8" fill="rgba(201,169,110,0.15)"/>
+            <circle cx="50" cy="178" r="5" fill="#c9a96e" opacity="0.55)"/>
+            <rect x="37"  y="192" width="66"  height="5"  rx="2" fill="rgba(255,255,255,0.55)"/>
+            <rect x="37"  y="202" width="50"  height="4"  rx="2" fill="rgba(255,255,255,0.2)"/>
+
+            <!-- Card 2 -->
+            <rect x="127" y="161" width="90"  height="55" rx="6" fill="#11213d" stroke="rgba(201,169,110,0.2)" stroke-width="1"/>
+            <circle cx="146" cy="178" r="8" fill="rgba(201,169,110,0.15)"/>
+            <circle cx="146" cy="178" r="5" fill="#c9a96e" opacity="0.55"/>
+            <rect x="133" y="192" width="66"  height="5"  rx="2" fill="rgba(255,255,255,0.55)"/>
+            <rect x="133" y="202" width="50"  height="4"  rx="2" fill="rgba(255,255,255,0.2)"/>
+
+            <!-- Card 3 -->
+            <rect x="223" y="161" width="90"  height="55" rx="6" fill="#11213d" stroke="rgba(201,169,110,0.2)" stroke-width="1"/>
+            <circle cx="242" cy="178" r="8" fill="rgba(201,169,110,0.15)"/>
+            <circle cx="242" cy="178" r="5" fill="#c9a96e" opacity="0.55"/>
+            <rect x="229" y="192" width="66"  height="5"  rx="2" fill="rgba(255,255,255,0.55)"/>
+            <rect x="229" y="202" width="50"  height="4"  rx="2" fill="rgba(255,255,255,0.2)"/>
+
+          </g><!-- /laptopClip -->
+
+          <!-- Laptop base (keyboard deck + trackpad) -->
+          <path d="M-8 233 Q8 227 16 227 L318 227 Q326 227 342 233 L358 248 L-24 248 Z"
+                fill="#0b1829" stroke="rgba(201,169,110,0.22)" stroke-width="1"/>
+          <rect x="143" y="234" width="78"  height="7"  rx="3" fill="rgba(255,255,255,0.06)"/>
+
+          <!-- ─────────────────────────
+               MOBILE PHONE
+          ───────────────────────── -->
+          <!-- Drop shadow for depth -->
+          <rect x="330" y="65"  width="150" height="280" rx="24" fill="rgba(0,0,0,0.38)"/>
+          <!-- Frame -->
+          <rect x="324" y="59"  width="150" height="280" rx="24" fill="#0d1b35" stroke="#c9a96e" stroke-width="1.5" stroke-opacity="0.55)"/>
+          <!-- Screen surface -->
+          <rect x="332" y="71"  width="134" height="260" rx="16" fill="#070e1c"/>
+          <!-- Dynamic island notch -->
+          <rect x="368" y="76"  width="62"  height="15"  rx="7.5" fill="#0d1b35"/>
+
+          <!-- All phone content clipped to screen -->
+          <g clip-path="url(#phoneClip)">
+
+            <!-- APP HEADER with month nav -->
+            <rect x="332" y="95"  width="134" height="30" fill="#0b1729"/>
+            <text x="399" y="115"
+                  font-family="Inter, Arial, sans-serif"
+                  font-size="11" font-weight="600"
+                  fill="#c9a96e" text-anchor="middle" letter-spacing="3">JUNI</text>
+            <text x="345" y="115"
+                  font-family="Arial, sans-serif" font-size="14"
+                  fill="rgba(255,255,255,0.32)" text-anchor="middle">&#8249;</text>
+            <text x="453" y="115"
+                  font-family="Arial, sans-serif" font-size="14"
+                  fill="rgba(255,255,255,0.32)" text-anchor="middle">&#8250;</text>
+
+            <!-- WEEKDAY HEADERS ROW -->
+            <rect x="332" y="125" width="134" height="20" fill="#0d1e38"/>
+            <!-- Mon–Fri (white), Sat–Sun (gold tint) -->
+            <rect x="335" y="131" width="14" height="7" rx="2" fill="rgba(255,255,255,0.28)"/>
+            <rect x="354" y="131" width="14" height="7" rx="2" fill="rgba(255,255,255,0.28)"/>
+            <rect x="373" y="131" width="14" height="7" rx="2" fill="rgba(255,255,255,0.28)"/>
+            <rect x="392" y="131" width="14" height="7" rx="2" fill="rgba(255,255,255,0.28)"/>
+            <rect x="411" y="131" width="14" height="7" rx="2" fill="rgba(255,255,255,0.28)"/>
+            <rect x="430" y="131" width="14" height="7" rx="2" fill="rgba(201,169,110,0.42)"/>
+            <rect x="449" y="131" width="14" height="7" rx="2" fill="rgba(201,169,110,0.42)"/>
+
+            <!-- DATE ROW 1 (month starts Tue, so col 0 is empty) -->
+            <rect x="354" y="148" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.06)"/>
+            <rect x="373" y="148" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.06)"/>
+            <rect x="392" y="148" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.06)"/>
+            <rect x="411" y="148" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.06)"/>
+            <rect x="430" y="148" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.04)"/>
+            <rect x="449" y="148" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.04)"/>
+
+            <!-- DATE ROW 2 -->
+            <rect x="335" y="170" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.06)"/>
+            <rect x="354" y="170" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.06)"/>
+            <rect x="373" y="170" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.06)"/>
+            <rect x="392" y="170" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.06)"/>
+            <rect x="411" y="170" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.06)"/>
+            <rect x="430" y="170" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.04)"/>
+            <rect x="449" y="170" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.04)"/>
+
+            <!-- DATE ROW 3: some available (gold) -->
+            <rect x="335" y="192" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.06)"/>
+            <rect x="354" y="192" width="17" height="17" rx="8.5" fill="#c9a96e" opacity="0.85"/>
+            <rect x="373" y="192" width="17" height="17" rx="8.5" fill="#c9a96e" opacity="0.85"/>
+            <rect x="392" y="192" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.06)"/>
+            <rect x="411" y="192" width="17" height="17" rx="8.5" fill="#c9a96e" opacity="0.85"/>
+            <rect x="430" y="192" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.04)"/>
+            <rect x="449" y="192" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.04)"/>
+
+            <!-- DATE ROW 4: selected range highlighted -->
+            <rect x="335" y="214" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.06)"/>
+            <rect x="354" y="214" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.06)"/>
+            <!-- Range band -->
+            <rect x="369" y="214" width="59" height="17"           fill="rgba(201,169,110,0.14)"/>
+            <!-- Start date (solid gold circle) -->
+            <rect x="373" y="214" width="17" height="17" rx="8.5" fill="#c9a96e" opacity="0.95"/>
+            <rect x="392" y="214" width="17" height="17" rx="8.5" fill="rgba(201,169,110,0.48)"/>
+            <!-- End date (solid gold circle) -->
+            <rect x="411" y="214" width="17" height="17" rx="8.5" fill="#c9a96e" opacity="0.95"/>
+            <rect x="430" y="214" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.04)"/>
+            <rect x="449" y="214" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.04)"/>
+
+            <!-- DATE ROW 5 -->
+            <rect x="335" y="236" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.06)"/>
+            <rect x="354" y="236" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.06)"/>
+            <rect x="373" y="236" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.06)"/>
+            <rect x="392" y="236" width="17" height="17" rx="8.5" fill="rgba(255,255,255,0.06)"/>
+
+            <!-- NIGHTS SUMMARY BAR -->
+            <rect x="332" y="258" width="134" height="24" fill="#0d1e38"/>
+            <rect x="340" y="264" width="50"  height="8"  rx="3" fill="rgba(255,255,255,0.2)"/>
+            <rect x="398" y="264" width="58"  height="8"  rx="3" fill="#c9a96e" opacity="0.55"/>
+
+            <!-- BOOKING BUTTON -->
+            <rect x="340" y="286" width="118" height="32" rx="8" fill="#c9a96e"/>
+            <rect x="356" y="296" width="34"  height="7"  rx="3" fill="rgba(10,22,40,0.65)"/>
+            <rect x="394" y="296" width="48"  height="7"  rx="3" fill="rgba(10,22,40,0.45)"/>
+
+            <!-- HOME INDICATOR -->
+            <rect x="374" y="324" width="50"  height="4"  rx="2" fill="rgba(255,255,255,0.18)"/>
+
+          </g><!-- /phoneClip -->
+
+        </svg>
+      </div><!-- /hero-illustration -->
+
+    </div><!-- /hero-inner -->
+  </section>
+
+
+  <!-- ================================
+       TENESTER (SERVICES)
+  ================================ -->
+  <section class="services" id="tjenester" aria-labelledby="services-heading">
+    <div class="container">
+
+      <p class="section-label fade-in" data-i18n="services.label">TENESTER</p>
+      <h2 class="section-title fade-in" id="services-heading" data-i18n="services.title">
+        Kva kan eg hjelpe deg med?
+      </h2>
+
+      <div class="services-grid">
+
+        <a href="#kontakt" class="service-card fade-in">
+          <div class="service-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="6" width="34" height="28" rx="3" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="3" y1="14" x2="37" y2="14" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="8.5" cy="10" r="1.5" stroke="#c9a96e" stroke-width="1.5"/>
+              <circle cx="13.5" cy="10" r="1.5" stroke="#c9a96e" stroke-width="1.5"/>
+              <rect x="18" y="7.5" width="16" height="5" rx="2" stroke="#c9a96e" stroke-width="1.2"/>
+              <line x1="9" y1="21" x2="31" y2="21" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="9" y1="27" x2="24" y2="27" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="service-title" data-i18n="services.web.title">Nettside</h3>
+          <p class="service-desc" data-i18n="services.web.desc">
+            Skreddarsydd nettside som ser profesjonell ut og er enkel å oppdatere sjølv
+          </p>
+        </a>
+
+        <a href="#kontakt" class="service-card fade-in">
+          <div class="service-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="7" width="32" height="29" rx="3" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="4" y1="15" x2="36" y2="15" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="13" y1="4" x2="13" y2="10" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="27" y1="4" x2="27" y2="10" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="15" y1="18" x2="15" y2="33" stroke="#c9a96e" stroke-width="1" stroke-linecap="round" stroke-opacity="0.35"/>
+              <line x1="25" y1="18" x2="25" y2="33" stroke="#c9a96e" stroke-width="1" stroke-linecap="round" stroke-opacity="0.35"/>
+              <line x1="8"  y1="24" x2="32" y2="24" stroke="#c9a96e" stroke-width="1" stroke-linecap="round" stroke-opacity="0.35"/>
+              <circle cx="20" cy="28.5" r="3" stroke="#c9a96e" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3 class="service-title" data-i18n="services.booking.title">Bookingsystem</h3>
+          <p class="service-desc" data-i18n="services.booking.desc">
+            Integrert bookingløysing så kundane dine kan bestille direkte på nettsida
+          </p>
+        </a>
+
+        <a href="#kontakt" class="service-card fade-in">
+          <div class="service-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="3" y="9" width="34" height="22" rx="3" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="3" y1="16" x2="37" y2="16" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round"/>
+              <rect x="8" y="22" width="10" height="4" rx="1" stroke="#c9a96e" stroke-width="1.2"/>
+              <line x1="25" y1="24" x2="32" y2="24" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="service-title" data-i18n="services.payment.title">Betalingsløysing</h3>
+          <p class="service-desc" data-i18n="services.payment.desc">
+            Stripe-integrasjon for sikker og enkel betaling på nett
+          </p>
+        </a>
+
+        <a href="#kontakt" class="service-card fade-in">
+          <div class="service-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M29 4 L36 11 L14 33 L6 37 L10 29 Z" stroke="#c9a96e" stroke-width="1.5" stroke-linejoin="round"/>
+              <line x1="24" y1="9" x2="31" y2="16" stroke="#c9a96e" stroke-width="1" stroke-linecap="round" stroke-opacity="0.5"/>
+            </svg>
+          </div>
+          <h3 class="service-title" data-i18n="services.logo.title">Logo &amp; grafisk profil</h3>
+          <p class="service-desc" data-i18n="services.logo.desc">
+            Profesjonell visuell identitet som speglar verksemda di
+          </p>
+        </a>
+
+        <a href="#kontakt" class="service-card fade-in">
+          <div class="service-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="17" cy="17" r="11" stroke="#c9a96e" stroke-width="1.5"/>
+              <line x1="25" y1="25" x2="36" y2="36" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round"/>
+              <polyline points="11,21 15,15 19,18 23,12" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="service-title" data-i18n="services.seo.title">SEO</h3>
+          <p class="service-desc" data-i18n="services.seo.desc">
+            Bli funnen på Google av dei rette kundane
+          </p>
+        </a>
+
+        <a href="#kontakt" class="service-card fade-in">
+          <div class="service-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="5" y="8" width="30" height="10" rx="2" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="5" y="22" width="30" height="10" rx="2" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="30" cy="13" r="2" stroke="#c9a96e" stroke-width="1.2"/>
+              <circle cx="30" cy="27" r="2" stroke="#c9a96e" stroke-width="1.2"/>
+              <line x1="9" y1="13" x2="21" y2="13" stroke="#c9a96e" stroke-width="1.2" stroke-linecap="round"/>
+              <line x1="9" y1="27" x2="21" y2="27" stroke="#c9a96e" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="service-title" data-i18n="services.hosting.title">Hosting</h3>
+          <p class="service-desc" data-i18n="services.hosting.desc">
+            Rask og sikker hosting, eg tek meg av det tekniske
+          </p>
+        </a>
+
+        <a href="#kontakt" class="service-card fade-in">
+          <div class="service-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 7 Q5 4 8 4 L32 4 Q35 4 35 7 L35 24 Q35 27 32 27 L22 27 L15 35 L15 27 L8 27 Q5 27 5 24 Z" stroke="#c9a96e" stroke-width="1.5" stroke-linejoin="round"/>
+              <circle cx="14" cy="15.5" r="2.5" stroke="#c9a96e" stroke-width="1.3"/>
+              <circle cx="20" cy="15.5" r="2.5" stroke="#c9a96e" stroke-width="1.3"/>
+              <circle cx="26" cy="15.5" r="2.5" stroke="#c9a96e" stroke-width="1.3"/>
+            </svg>
+          </div>
+          <h3 class="service-title" data-i18n="services.chatbot.title">Chatbot</h3>
+          <p class="service-desc" data-i18n="services.chatbot.desc">
+            AI-dreven chatbot som svarar kundane dine døgnet rundt
+          </p>
+        </a>
+
+        <a href="#kontakt" class="service-card fade-in">
+          <div class="service-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="32" cy="10" r="4" stroke="#c9a96e" stroke-width="1.5"/>
+              <circle cx="32" cy="30" r="4" stroke="#c9a96e" stroke-width="1.5"/>
+              <circle cx="8" cy="20" r="4" stroke="#c9a96e" stroke-width="1.5"/>
+              <line x1="12" y1="18" x2="28" y2="12" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="12" y1="22" x2="28" y2="28" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="service-title" data-i18n="services.social.title">Sosiale medier</h3>
+          <p class="service-desc" data-i18n="services.social.desc">
+            Innhald og annonsering på Meta, TikTok og e-post
+          </p>
+        </a>
+
+        <a href="#kontakt" class="service-card fade-in">
+          <div class="service-icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 4 C13.4 4 8 9.4 8 16 C8 23.5 20 38 20 38 C20 38 32 23.5 32 16 C32 9.4 26.6 4 20 4 Z" stroke="#c9a96e" stroke-width="1.5" stroke-linejoin="round"/>
+              <circle cx="20" cy="16" r="4" stroke="#c9a96e" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3 class="service-title" data-i18n="services.maps.title">Digitale kart &amp; visuals</h3>
+          <p class="service-desc" data-i18n="services.maps.desc">
+            Interaktive kart og visuals tilpassa di verksemd
+          </p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================
+       NETTSIDE DETAIL
+  ================================ -->
+  <section class="detail-section" id="nettside" aria-labelledby="nettside-heading">
+    <div class="container">
+      <div class="detail-inner">
+
+        <div class="detail-content fade-in">
+          <p class="section-label" data-i18n="detail.web.label">NETTSIDE</p>
+          <h2 class="detail-title" id="nettside-heading" data-i18n="detail.web.title">
+            Di eiga nettside, skreddarsydd
+          </h2>
+          <p class="detail-intro" data-i18n="detail.web.intro">
+            Eg lagar ei nettside som speglar campingplassen din — frå design til innhald. Du slepp å tenke på det tekniske.
+          </p>
+          <a href="#kontakt" class="btn btn-primary" data-i18n="detail.cta">Ta kontakt</a>
+        </div>
+
+        <ul class="detail-features fade-in" aria-label="Kva er inkludert">
+          <li class="feature-item">
+            <svg class="feature-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2.5 8.5 L6 12 L13.5 4.5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="detail.web.feat1">Unikt design tilpassa din campingplass</span>
+          </li>
+          <li class="feature-item">
+            <svg class="feature-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2.5 8.5 L6 12 L13.5 4.5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="detail.web.feat2">Fullstendig mobilvennleg (responsivt)</span>
+          </li>
+          <li class="feature-item">
+            <svg class="feature-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2.5 8.5 L6 12 L13.5 4.5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="detail.web.feat3">Enkelt administrasjonspanel — du oppdaterer sjølv</span>
+          </li>
+          <li class="feature-item">
+            <svg class="feature-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2.5 8.5 L6 12 L13.5 4.5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="detail.web.feat4">Rask lastetid og SSL-sikra</span>
+          </li>
+          <li class="feature-item">
+            <svg class="feature-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2.5 8.5 L6 12 L13.5 4.5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="detail.web.feat5">SEO-optimert — gjestene finn deg på Google</span>
+          </li>
+          <li class="feature-item">
+            <svg class="feature-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2.5 8.5 L6 12 L13.5 4.5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="detail.web.feat6">Ditt domenenamn inkludert</span>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================
+       BOOKINGSYSTEM DETAIL
+  ================================ -->
+  <section class="detail-section detail-alt" id="bookingsystem" aria-labelledby="bookingsystem-heading">
+    <div class="container">
+      <div class="detail-inner">
+
+        <div class="detail-content fade-in">
+          <p class="section-label" data-i18n="detail.booking.label">BOOKINGSYSTEM</p>
+          <h2 class="detail-title" id="bookingsystem-heading" data-i18n="detail.booking.title">
+            Direkte booking, utan mellomledd
+          </h2>
+          <p class="detail-intro" data-i18n="detail.booking.intro">
+            Gjestene dine bestiller direkte på nettsida di — ingen tredjepartstenester, ingen provisjon.
+          </p>
+          <a href="#kontakt" class="btn btn-primary" data-i18n="detail.cta">Ta kontakt</a>
+        </div>
+
+        <ul class="detail-features fade-in" aria-label="Kva er inkludert">
+          <li class="feature-item">
+            <svg class="feature-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2.5 8.5 L6 12 L13.5 4.5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="detail.booking.feat1">Bestilling direkte frå nettsida di</span>
+          </li>
+          <li class="feature-item">
+            <svg class="feature-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2.5 8.5 L6 12 L13.5 4.5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="detail.booking.feat2">Online betaling via Stripe</span>
+          </li>
+          <li class="feature-item">
+            <svg class="feature-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2.5 8.5 L6 12 L13.5 4.5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="detail.booking.feat3">Fungerer på mobil, nettbrett og PC</span>
+          </li>
+          <li class="feature-item">
+            <svg class="feature-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2.5 8.5 L6 12 L13.5 4.5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="detail.booking.feat4">Enkel administrasjon av alle reservasjonar</span>
+          </li>
+          <li class="feature-item">
+            <svg class="feature-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2.5 8.5 L6 12 L13.5 4.5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="detail.booking.feat5">Automatiske bekreftelses-e-postar til gjestene</span>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================
+       DIGITAL PAKKE DETAIL (recommended)
+  ================================ -->
+  <section class="detail-section detail-recommended" id="digital-pakke" aria-labelledby="digital-pakke-heading">
+    <div class="container">
+      <div class="detail-inner">
+
+        <div class="detail-content fade-in">
+          <span class="recommended-badge" data-i18n="detail.package.badge">ANBEFALT</span>
+          <p class="section-label" data-i18n="detail.package.label">DIGITAL PAKKE</p>
+          <h2 class="detail-title" id="digital-pakke-heading" data-i18n="detail.package.title">
+            Alt du treng, i éi løysing
+          </h2>
+          <p class="detail-intro" data-i18n="detail.package.intro">
+            Den komplette digitale løysinga for campingplassen din — nettside og booking saman, til ein betre pris.
+          </p>
+          <a href="#kontakt" class="btn btn-primary" data-i18n="detail.cta">Ta kontakt</a>
+        </div>
+
+        <ul class="detail-features fade-in" aria-label="Kva er inkludert">
+          <li class="feature-item">
+            <svg class="feature-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2.5 8.5 L6 12 L13.5 4.5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="detail.package.feat1">Alt frå nettsidepakken inkludert</span>
+          </li>
+          <li class="feature-item">
+            <svg class="feature-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2.5 8.5 L6 12 L13.5 4.5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="detail.package.feat2">Alt frå bookingsystemet inkludert</span>
+          </li>
+          <li class="feature-item">
+            <svg class="feature-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2.5 8.5 L6 12 L13.5 4.5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="detail.package.feat3">Éin leverandør for alt digitalt</span>
+          </li>
+          <li class="feature-item">
+            <svg class="feature-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2.5 8.5 L6 12 L13.5 4.5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="detail.package.feat4">Betre totalpris enn å kjøpe kvar for seg</span>
+          </li>
+          <li class="feature-item">
+            <svg class="feature-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2.5 8.5 L6 12 L13.5 4.5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="detail.package.feat5">Prioritert hjelp og support</span>
+          </li>
+          <li class="feature-item">
+            <svg class="feature-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M2.5 8.5 L6 12 L13.5 4.5" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span data-i18n="detail.package.feat6">Klar for drift frå første dag</span>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================
+       SLIK FUNGERER DET (PROCESS)
+  ================================ -->
+  <section class="process" id="prosess" aria-labelledby="process-heading">
+    <div class="container">
+
+      <p class="section-label fade-in" data-i18n="process.label">PROSESS</p>
+      <h2 class="section-title fade-in" id="process-heading" data-i18n="process.title">
+        Slik fungerer det
+      </h2>
+
+      <div class="process-timeline">
+
+        <div class="process-step fade-in">
+          <div class="step-number" aria-hidden="true">01</div>
+          <div class="step-content">
+            <h3 class="step-title" data-i18n="process.step1.title">Uforpliktande demo</h3>
+            <p class="step-desc"   data-i18n="process.step1.desc">
+              Eg lagar ein gratis demo av nettsida di. Ingen binding.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-step fade-in">
+          <div class="step-number" aria-hidden="true">02</div>
+          <div class="step-content">
+            <h3 class="step-title" data-i18n="process.step2.title">Tilpassing</h3>
+            <p class="step-desc"   data-i18n="process.step2.desc">
+              Me justerer design, tekst og innhald til det passar din campingplass.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-step fade-in">
+          <div class="step-number" aria-hidden="true">03</div>
+          <div class="step-content">
+            <h3 class="step-title" data-i18n="process.step3.title">Lansering</h3>
+            <p class="step-desc"   data-i18n="process.step3.desc">
+              Nettsida blir publisert med ditt domene og bookingsystem på plass.
+            </p>
+          </div>
+        </div>
+
+        <div class="process-step fade-in">
+          <div class="step-number" aria-hidden="true">04</div>
+          <div class="step-content">
+            <h3 class="step-title" data-i18n="process.step4.title">Du styrer sjølv</h3>
+            <p class="step-desc"   data-i18n="process.step4.desc">
+              Du får full kontroll og kan oppdatere innhald sjølv når du vil.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ================================
+       OM MEG (ABOUT)
+  ================================ -->
+  <section class="about" id="om-meg" aria-labelledby="about-heading">
+    <div class="container">
+
+      <div class="about-inner">
+
+        <!-- Left: portrait photo -->
+        <div class="about-portrait fade-in">
+          <img src="vegard2.png" alt="Vegard Innset" class="portrait-img">
+          <span class="portrait-caption">ULVIK · HARDANGER → BARCELONA</span>
+        </div>
+
+        <!-- Right: text content -->
+        <div class="about-text-col fade-in">
+          <p class="section-label" data-i18n="about.label">OM MEG</p>
+          <h2 class="about-title" id="about-heading" data-i18n="about.title">
+            Kven er eg?
+          </h2>
+          <p class="about-para" data-i18n="about.p1">
+            Eg heiter Vegard Innset, er 22 år og kjem frå Ulvik i Hardanger. For tida studerer eg kunstig intelligens i Barcelona.
+          </p>
+          <p class="about-para" data-i18n="about.p2">
+            Innset Solutions er ein soloverksemd. Det er meg du snakkar med, og det er meg som byggjer nettsida di. Eg brukar moderne verktøy og AI for å levere arbeid som tidlegare kravde eit heilt byrå — raskare, billegare og meir personleg.
+          </p>
+          <p class="about-para" data-i18n="about.p3">
+            Eg trur på ærleg kommunikasjon. Du får tett oppfølging, klare prisar, og eit produkt du eig sjølv etter overlevering. Ingen abonnement du ikkje forstår. Inga binding.
+          </p>
+          <p class="about-para" data-i18n="about.p4">
+            Hovudfokuset mitt er campingplassar og reiselivsbedrifter, men eg hjelper alle typar verksemder med å etablere seg digitalt.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Stats row: large gold value + small label -->
+      <div class="about-stats fade-in">
+        <div class="about-stat">
+          <span class="stat-value" data-i18n="about.stat1.value">22</span>
+          <span class="stat-label" data-i18n="about.stat1.label">ÅR GAMAL</span>
+        </div>
+        <div class="about-stat">
+          <span class="stat-value" data-i18n="about.stat2.value">100%</span>
+          <span class="stat-label" data-i18n="about.stat2.label">SOLO · INGEN BYRÅ</span>
+        </div>
+        <div class="about-stat">
+          <span class="stat-value" data-i18n="about.stat3.value">24t</span>
+          <span class="stat-label" data-i18n="about.stat3.label">SVAR GARANTERT</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ================================
+       KONTAKT (CONTACT)
+  ================================ -->
+  <section class="contact" id="kontakt" aria-labelledby="contact-heading">
+    <div class="container">
+
+      <p class="section-label fade-in" data-i18n="contact.label">KONTAKT</p>
+      <h2 class="section-title fade-in" id="contact-heading" data-i18n="contact.title">
+        Ta kontakt
+      </h2>
+      <p class="contact-subtitle fade-in" data-i18n="contact.subtitle">
+        Ingen binding. Eg svarar innan 24 timar.
+      </p>
+
+      <form class="contact-form fade-in" id="contactForm" novalidate>
+
+        <div class="form-group">
+          <label for="name" data-i18n="contact.form.name">Namn</label>
+          <input type="text"  id="name"     name="name"     required autocomplete="name"         placeholder=" " />
+        </div>
+
+        <div class="form-group">
+          <label for="email" data-i18n="contact.form.email">E-post</label>
+          <input type="email" id="email"    name="email"    required autocomplete="email"        placeholder=" " />
+        </div>
+
+        <div class="form-group">
+          <label for="campsite">
+            <span data-i18n="contact.form.campsite">Campingplass</span>
+            <span class="label-optional" data-i18n="contact.form.optional">(valfritt)</span>
+          </label>
+          <input type="text"  id="campsite" name="campsite"          autocomplete="organization" placeholder=" " />
+        </div>
+
+        <div class="form-group">
+          <label for="message" data-i18n="contact.form.message">Melding</label>
+          <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="formSubmit" data-i18n="contact.form.submit">
+          Send melding
+        </button>
+
+        <div class="form-success" id="formSuccess" role="status" aria-live="polite"></div>
+
+      </form>
+
+      <p class="contact-email">
+        <a href="mailto:innset.solutions@gmail.com">innset.solutions@gmail.com</a>
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- ================================
+       FOOTER
+  ================================ -->
+  <footer class="footer" role="contentinfo">
+    <p data-i18n="footer.copy">© 2026 Innset Solutions — Ulvik, Hardanger</p>
+    <p style="margin-top:0.4rem;">
+      <a href="personvern.html" style="color:var(--gold);text-decoration:underline;text-underline-offset:3px;font-size:0.8rem;">Personvern</a>
+    </p>
+  </footer>
+
+  <!-- ================================
+       COOKIE BANNER
+  ================================ -->
+  <div class="cookie-banner hidden" id="cookieBanner" role="region" aria-label="Informasjonskapslar">
+    <p>
+      Denne nettsida nyttar informasjonskapslar for å hugse dine val. Les meir i vår
+      <a href="personvern.html">personvernerklæring</a>.
+    </p>
+    <div class="cookie-buttons">
+      <button class="cookie-btn cookie-btn-accept" id="cookieAccept">Godta</button>
+      <button class="cookie-btn cookie-btn-reject" id="cookieReject">Avvis</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      function loadAnalytics() {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-50J1CTBKRH');
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-50J1CTBKRH';
+        document.head.appendChild(s);
+      }
+
+      var banner = document.getElementById('cookieBanner');
+      var consent = localStorage.getItem('cookieConsent');
+
+      if (consent === 'accepted') {
+        loadAnalytics();
+      } else if (!consent) {
+        banner.classList.remove('hidden');
+      }
+
+      document.getElementById('cookieAccept').addEventListener('click', function () {
+        localStorage.setItem('cookieConsent', 'accepted');
+        banner.classList.add('hidden');
+        loadAnalytics();
+      });
+      document.getElementById('cookieReject').addEventListener('click', function () {
+        localStorage.setItem('cookieConsent', 'rejected');
+        banner.classList.add('hidden');
+      });
+    })();
+  </script>
+</body>
+</html>
