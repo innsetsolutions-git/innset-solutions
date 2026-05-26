@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="dots" x="0" y="0" width="48" height="48" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="rgba(201,169,110,0.07)"/>
+    </pattern>
+    <radialGradient id="glow" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#c9a96e" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#c9a96e" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0a1628"/>
+  <!-- Dot grid texture -->
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <!-- Radial glow -->
+  <ellipse cx="600" cy="315" rx="560" ry="300" fill="url(#glow)"/>
+
+  <!-- Top decorative line -->
+  <line x1="460" y1="248" x2="740" y2="248" stroke="#c9a96e" stroke-width="1" stroke-opacity="0.45"/>
+
+  <!-- Main title -->
+  <text x="600" y="330"
+        font-family="'Playfair Display', Georgia, serif"
+        font-size="86"
+        font-weight="700"
+        fill="#c9a96e"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        letter-spacing="4">INNSET SOLUTIONS</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="406"
+        font-family="'Inter', Arial, sans-serif"
+        font-size="30"
+        font-weight="300"
+        fill="rgba(255,255,255,0.70)"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        letter-spacing="1">Digitale løysingar for di verksemd</text>
+
+  <!-- Bottom decorative line -->
+  <line x1="460" y1="452" x2="740" y2="452" stroke="#c9a96e" stroke-width="1" stroke-opacity="0.45"/>
+</svg>
