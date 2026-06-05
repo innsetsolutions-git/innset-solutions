@@ -304,8 +304,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
    HERO PARTICLE CANVAS  (desktop only)
    ============================================================ */
 (function () {
-  if (window.matchMedia('(max-width: 768px)').matches) return;
-
   const hero   = document.getElementById('hero');
   const canvas = document.createElement('canvas');
   canvas.id = 'heroCanvas';
