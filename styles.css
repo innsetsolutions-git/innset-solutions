@@ -328,6 +328,11 @@ img { max-width: 100%; display: block; }
   from { opacity: 0; transform: translateX(22px); }
   to   { opacity: 1; transform: translateX(0); }
 }
+@keyframes heroGradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
 
 /* ============================================================
@@ -877,6 +882,12 @@ img { max-width: 100%; display: block; }
    ============================================================ */
 @media (max-width: 768px) {
   :root { --section-py: 72px; }
+
+  .hero {
+    background: linear-gradient(135deg, #0a1628, #0d2040, #0a2030, #0a1628);
+    background-size: 400% 400%;
+    animation: heroGradientShift 9s ease infinite;
+  }
 
   .hamburger { display: flex; }
 
