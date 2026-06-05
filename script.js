@@ -298,3 +298,146 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
+
+
+/* ============================================================
+   HERO PARTICLE CANVAS  (desktop only)
+   ============================================================ */
+(function () {
+  if (window.matchMedia('(max-width: 768px)').matches) return;
+
+  const hero   = document.getElementById('hero');
+  const canvas = document.createElement('canvas');
+  canvas.id = 'heroCanvas';
+  canvas.setAttribute('aria-hidden', 'true');
+  hero.insertBefore(canvas, hero.firstChild);
+
+  const ctx = canvas.getContext('2d');
+
+  const COUNT       = 90;
+  const CONN_DIST   = 120;
+  const MOUSE_DIST  = 160;
+  const MOUSE_FORCE = 0.028;
+  const MAX_SPEED   = 0.5;
+
+  const mouse = { x: null, y: null };
+  let W = 0, H = 0, particles = [];
+
+  function rand(a, b) { return a + Math.random() * (b - a); }
+
+  function resize() {
+    W = canvas.width  = hero.offsetWidth;
+    H = canvas.height = hero.offsetHeight;
+  }
+
+  function initParticles() {
+    particles = [];
+    for (let i = 0; i < COUNT; i++) {
+      const angle = rand(0, Math.PI * 2);
+      const speed = rand(0.05, 0.2);
+      particles.push({
+        x:     rand(0, W),
+        y:     rand(0, H),
+        vx:    Math.cos(angle) * speed,
+        vy:    Math.sin(angle) * speed,
+        r:     rand(1, 3),
+        color: Math.random() > 0.42 ? '#c9a96e' : 'rgba(255,255,255,0.5)',
+        alpha: rand(0.35, 0.85),
+      });
+    }
+  }
+
+  function update() {
+    for (const p of particles) {
+      if (mouse.x !== null) {
+        const dx   = mouse.x - p.x;
+        const dy   = mouse.y - p.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < MOUSE_DIST && dist > 1) {
+          const f = (1 - dist / MOUSE_DIST) * MOUSE_FORCE;
+          p.vx += (dx / dist) * f;
+          p.vy += (dy / dist) * f;
+        }
+      }
+
+      p.vx *= 0.99;
+      p.vy *= 0.99;
+
+      const spd = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+      if (spd > MAX_SPEED) {
+        p.vx = (p.vx / spd) * MAX_SPEED;
+        p.vy = (p.vy / spd) * MAX_SPEED;
+      }
+
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if (p.x < p.r)     { p.x = p.r;     p.vx =  Math.abs(p.vx); }
+      if (p.x > W - p.r) { p.x = W - p.r; p.vx = -Math.abs(p.vx); }
+      if (p.y < p.r)     { p.y = p.r;     p.vy =  Math.abs(p.vy); }
+      if (p.y > H - p.r) { p.y = H - p.r; p.vy = -Math.abs(p.vy); }
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    // Connecting lines
+    for (let i = 0; i < particles.length; i++) {
+      const a = particles[i];
+      for (let j = i + 1; j < particles.length; j++) {
+        const b    = particles[j];
+        const dx   = a.x - b.x;
+        const dy   = a.y - b.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < CONN_DIST) {
+          ctx.strokeStyle = `rgba(201,169,110,${(1 - dist / CONN_DIST) * 0.18})`;
+          ctx.lineWidth   = 0.7;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Dots
+    for (const p of particles) {
+      ctx.globalAlpha = p.alpha;
+      ctx.fillStyle   = p.color;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  function tick() {
+    update();
+    draw();
+    requestAnimationFrame(tick);
+  }
+
+  hero.addEventListener('mousemove', e => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  }, { passive: true });
+
+  hero.addEventListener('mouseleave', () => {
+    mouse.x = null;
+    mouse.y = null;
+  });
+
+  window.addEventListener('resize', () => {
+    resize();
+    for (const p of particles) {
+      p.x = Math.min(p.x, W - p.r);
+      p.y = Math.min(p.y, H - p.r);
+    }
+  }, { passive: true });
+
+  resize();
+  initParticles();
+  tick();
+})();
